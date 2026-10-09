@@ -27,4 +27,4 @@ Um serviço de certificação pode, além disso, oferecer uma interface HTTP, ap
 
 ## Privacidade e alcance
 
-O protocolo padroniza apenas campos compartilhados do certificado (`policy_id`, `registration`, `claims`) e suas assinaturas. Dados sensíveis coletados por uma autoridade não devem ser presumidos públicos nem incluídos no certificado por padrão. A política da autoridade determina retenção, forma de cadastro e requisitos. O protocolo não confere confiança automática a autoridades recém-descobertas.
+O protocolo padroniza apenas campos compartilhados do certificado (`policy_id`, `registration`, `claims`) e suas assinaturas. **Recomendação de implementação não normativa:** a autoridade pode manter fora do certificado dados sensíveis coletados no cadastro e evitar presumir que sejam públicos. A política da autoridade determina retenção, forma de cadastro e requisitos. O protocolo não confere confiança automática a autoridades recém-descobertas.
