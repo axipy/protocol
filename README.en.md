@@ -58,4 +58,8 @@ The specification's **MUST**, **MUST NOT**, **SHOULD**, and **MAY** terminology 
 
 ## License
 
-This repository does not yet contain a `LICENSE` file. The maintainer must publish a license before reuse rights can be assumed. The [Portuguese licensing note](README.md#licenciamento) records options under consideration.
+AXIPY Protocol, including its specification, documentation, and reference implementations contained in this repository, is licensed under the **Apache License, Version 2.0**.
+
+You may use, modify, and redistribute the material, including for commercial purposes, subject to the terms of the license.
+
+See [LICENSE](LICENSE) for the full license text.
