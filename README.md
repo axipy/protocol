@@ -113,4 +113,8 @@ Os exemplos assinados podem ser reproduzidos com `node tests/generate_vectors.mj
 
 ## Licenciamento
 
-Este repositório ainda não contém um arquivo `LICENSE`. Até o mantenedor escolher e publicar uma licença, terceiros não devem presumir permissão de reutilização apenas por o código estar visível. **Recomendação para decisão do mantenedor:** Apache-2.0 é uma opção permissiva adequada para a especificação e o código de referência, com concessão expressa de patentes e exigências de preservação de avisos; MIT simplificaria os avisos e coincidiria com a licença do `axipy/social`, mas não contém a mesma concessão expressa de patentes. Nenhuma licença foi aplicada nesta revisão.
+O AXIPY Protocol, incluindo sua especificação, documentação e implementações de referência contidas neste repositório, é disponibilizado sob os termos da **Apache License, Version 2.0**.
+
+São permitidos o uso, a modificação e a redistribuição, inclusive para fins comerciais, observadas as condições da licença.
+
+Consulte o arquivo [LICENSE](LICENSE) para os termos completos.
