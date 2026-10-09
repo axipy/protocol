@@ -1,0 +1,23 @@
+{
+  "payload": {
+    "type": "axipy.handshake.challenge",
+    "node_id": "axk1_iRPtkvZPakKuwkQCJuTwfv-_p9ogIjMIKIOsw1olnho",
+    "public_key": {
+      "kty": "OKP",
+      "crv": "Ed25519",
+      "x": "w5pJQTRrs36uifv5sInkrtXbQ5XY-CaXgE88mRYVJXw"
+    },
+    "nonce": "u7Hlqft-6QJFOHP4E_AmWlHTF9yKousudnLRNNjWgWw",
+    "echo": "c50nkiH5tnKJ3C_lUYSZRC1oldb4i953jQZDMewm_yw",
+    "session_id": "lTB9FRVErTszWHDM9eQl2RK90hU8G-5gkafMZRGrGds",
+    "accepted_issuers": [
+      "axk1_qRKo-z1tn6XvMPNjfP25R-PSddgme-GHGs17VgqOOgA"
+    ],
+    "version": "1",
+    "issued_at": "2026-10-09T02:00:00Z"
+  },
+  "signature": {
+    "algorithm": "Ed25519",
+    "value": "INsVJo58WXE37Tk-Om5xqdOKJOqQbP__lTlEILEfXSWF5M3wryub2KzX2vggdWZM7HSDPtbRSSBbXI5Vc-YlBw"
+  }
+}

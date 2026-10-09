@@ -1,0 +1,31 @@
+{
+  "payload": {
+    "type": "axipy.node.descriptor",
+    "version": "1",
+    "node_id": "axk1_of5PGGB760V4mg-k4TwTZ2azD5pMY0EDii95DPnXc_8",
+    "public_key": {
+      "kty": "OKP",
+      "crv": "Ed25519",
+      "x": "FtLvzU3aBZmEIa3BwZF_OYRkurMCpWWnbEjceI9bEzI"
+    },
+    "base_url": "https://node-a.example",
+    "endpoints": {
+      "handshake": "/axipy/v1/handshake",
+      "handshake_confirm": "/axipy/v1/handshake/confirm",
+      "announcements": "/axipy/v1/announcements",
+      "objects": "/axipy/v1/objects/",
+      "peers": "/axipy/v1/peers"
+    },
+    "supported_versions": [
+      "1"
+    ],
+    "accepted_issuers": [
+      "axk1_qRKo-z1tn6XvMPNjfP25R-PSddgme-GHGs17VgqOOgA"
+    ],
+    "issued_at": "2026-10-09T02:00:00Z"
+  },
+  "signature": {
+    "algorithm": "Ed25519",
+    "value": "bB2rZqgvU2akmCwMUX0GOtCn0TMftGshpHTdj7GU6KDtETo3p6ty13sI_BgWdE8JCogOOiWllLyC6iVkHcYaBA"
+  }
+}

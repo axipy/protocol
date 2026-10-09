@@ -1,0 +1,44 @@
+{
+  "post": {
+    "payload": {
+      "type": "axipy.post",
+      "version": "1",
+      "author_key_id": "axk1_JYrAAKeex518TLSIBF-m7ePkZ_7qdqNCRrSqOKeuKn4",
+      "certificate_id": "axc1_OW-dxWOGYeuyDOzp1Lbs05Cyl1_f0O93GpZhu_zAA5c",
+      "created_at": "2026-10-09T02:00:00Z",
+      "text": "Olá, mundo! Esta é uma publicação AXIPY.",
+      "reply_to": null
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "value": "Fku2VNnK6A6Ms9Ub_JneSjgcy3_Wwwf5qjUD4kICTgcGpO_u9rf3dAf2LX8CjP82T7lig1XnVXBxnvw-jH31Aw"
+    }
+  },
+  "certificate": {
+    "payload": {
+      "type": "axipy.certificate",
+      "version": "1",
+      "issuer_id": "axk1_qRKo-z1tn6XvMPNjfP25R-PSddgme-GHGs17VgqOOgA",
+      "subject_key": {
+        "kty": "OKP",
+        "crv": "Ed25519",
+        "x": "xAbiRfQf72qk4-m2HsOPQvTFR229xMav-7iaC2fSCCI"
+      },
+      "issued_at": "2026-10-09T00:00:00Z",
+      "expires_at": "2027-10-09T00:00:00Z",
+      "policy_id": "axipy-registration-v1",
+      "registration": {
+        "requested_by": "axk1_of5PGGB760V4mg-k4TwTZ2azD5pMY0EDii95DPnXc_8",
+        "requester_verification": "cryptographic",
+        "method": "signed-peer-request"
+      },
+      "claims": {
+        "pseudonymous": true
+      }
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "value": "P5BnP2exYODbLlFlPDXvj3mI0OOh0GWT1Wfe5UrqhDdeggUkiBpo1mLVpc7i4AxU8vV7AIoUHPGkGunV20OLAQ"
+    }
+  }
+}

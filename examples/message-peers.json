@@ -1,0 +1,15 @@
+{
+  "payload": {
+    "type": "axipy.peers",
+    "node_id": "axk1_of5PGGB760V4mg-k4TwTZ2azD5pMY0EDii95DPnXc_8",
+    "peers": [
+      "https://node-b.example"
+    ],
+    "version": "1",
+    "issued_at": "2026-10-09T02:00:00Z"
+  },
+  "signature": {
+    "algorithm": "Ed25519",
+    "value": "joEdfM6Z9LME8OevQvkormynUF3MN7voheYRLMfbumBXTW9H-QT8iufjbmf7TuSyGU_7lfzIpb7KUGfOYd46BA"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "payload": {
+    "type": "axipy.handshake.ready",
+    "node_id": "axk1_iRPtkvZPakKuwkQCJuTwfv-_p9ogIjMIKIOsw1olnho",
+    "session_id": "lTB9FRVErTszWHDM9eQl2RK90hU8G-5gkafMZRGrGds",
+    "status": "accepted",
+    "version": "1",
+    "issued_at": "2026-10-09T02:00:00Z"
+  },
+  "signature": {
+    "algorithm": "Ed25519",
+    "value": "h-mMP3zEL_J4HQwiXM4ia0h2a0i5oCnWHXexpfFVfU8_e0qo8V488RgMUcFo70N-hqgUZRiLbSOS8TGd5_glBg"
+  }
+}

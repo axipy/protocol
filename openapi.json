@@ -1,0 +1,390 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AXIPY Protocol — perfil HTTP v1",
+    "version": "0.1.0",
+    "description": "Contrato técnico de comunicação independente da implementação. Schemas externos em ./schemas/. Tipos de mensagens discriminados por payload.type. Autoridade certificadora e nó têm papéis distintos."
+  },
+  "servers": [
+    {
+      "url": "https://node.example",
+      "description": "Exemplo; endpoint não obrigatório"
+    }
+  ],
+  "paths": {
+    "/.well-known/axipy": {
+      "get": {
+        "operationId": "discoverNode",
+        "summary": "Descriptor do nó, assinado pela chave do nó",
+        "responses": {
+          "200": {
+            "description": "Descriptor do nó",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/node-descriptor.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/axipy-authority": {
+      "get": {
+        "operationId": "discoverAuthority",
+        "summary": "Descriptor da autoridade certificadora",
+        "responses": {
+          "200": {
+            "description": "Descriptor assinado da AC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/authority-descriptor.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/axipy/v1/handshake": {
+      "post": {
+        "operationId": "handshakeHello",
+        "summary": "Início de handshake: hello assinado para challenge assinado",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./schemas/wire-message.schema.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Desafio assinado de B",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/wire-message.schema.json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Formato inválido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Assinatura inválida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Recusado por política ou autoridade",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/axipy/v1/handshake/confirm": {
+      "post": {
+        "operationId": "handshakeConfirm",
+        "summary": "Confirmação do desafio: confirm para ready",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./schemas/wire-message.schema.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Aceite assinado de B",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/wire-message.schema.json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Formato inválido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Assinatura inválida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Recusado por política ou autoridade",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/axipy/v1/announcements": {
+      "post": {
+        "operationId": "announceObject",
+        "summary": "Anúncio com ID e autoridade antes de buscar bundle",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./schemas/wire-message.schema.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Anúncio aceito para exame posterior"
+          },
+          "200": {
+            "description": "Anúncio duplicado"
+          },
+          "400": {
+            "description": "Formato inválido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Assinatura inválida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Recusado por política ou autoridade",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/axipy/v1/objects/{post_id}": {
+      "get": {
+        "operationId": "fetchObject",
+        "summary": "Busca pacote post+certificado",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "post_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^axp1_[A-Za-z0-9_-]{43}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Objeto e certificado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/bundle.schema.json"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Objeto desconhecido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/axipy/v1/peers": {
+      "get": {
+        "operationId": "listPeers",
+        "summary": "Lista assinada de URLs candidatas a peers",
+        "responses": {
+          "200": {
+            "description": "Mensagem do tipo axipy.peers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/wire-message.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/axipy/v1/certification/requests": {
+      "post": {
+        "operationId": "requestCertificate",
+        "summary": "Solicitação de certificação assinada pelo titular",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./schemas/cert-request.schema.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Certificado emitido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/certificate.schema.json"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Pedido recebido, pendente conforme política da AC"
+          },
+          "400": {
+            "description": "Formato inválido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Assinatura inválida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Recusado por política ou autoridade",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/error.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/axipy/v1/certificates/{certificate_id}": {
+      "get": {
+        "operationId": "fetchCertificate",
+        "summary": "Consulta a certificado previamente emitido",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "certificate_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^axc1_[A-Za-z0-9_-]{43}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Certificado assinado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/certificate.schema.json"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Certificado desconhecido"
+          }
+        }
+      }
+    },
+    "/axipy/v1/authorities/revocations": {
+      "get": {
+        "operationId": "fetchRevocations",
+        "summary": "Snapshot de certificados revogados",
+        "responses": {
+          "200": {
+            "description": "Revogações assinadas da AC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas/revocations.schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

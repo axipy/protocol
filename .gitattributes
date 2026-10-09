@@ -1,0 +1,2 @@
+# Preserve exact file bytes: protocol vectors and SHA256SUMS depend on them.
+* -text

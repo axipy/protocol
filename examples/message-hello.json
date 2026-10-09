@@ -1,0 +1,21 @@
+{
+  "payload": {
+    "type": "axipy.handshake.hello",
+    "node_id": "axk1_of5PGGB760V4mg-k4TwTZ2azD5pMY0EDii95DPnXc_8",
+    "public_key": {
+      "kty": "OKP",
+      "crv": "Ed25519",
+      "x": "FtLvzU3aBZmEIa3BwZF_OYRkurMCpWWnbEjceI9bEzI"
+    },
+    "nonce": "c50nkiH5tnKJ3C_lUYSZRC1oldb4i953jQZDMewm_yw",
+    "accepted_issuers": [
+      "axk1_qRKo-z1tn6XvMPNjfP25R-PSddgme-GHGs17VgqOOgA"
+    ],
+    "version": "1",
+    "issued_at": "2026-10-09T02:00:00Z"
+  },
+  "signature": {
+    "algorithm": "Ed25519",
+    "value": "3pwCA6W7we2MzwHLRfIbiA_InointJ16IPIrWhlvoTh94mFXzGZryO68EVXzdG9OFx-hipGf3TnIBhjov4VnCQ"
+  }
+}
