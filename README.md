@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <strong>Especificação 0.2</strong> · Objetos e mensagens <code>v2</code> · Proposta em discussão
+  <strong>Especificação 0.2</strong> · Objetos e mensagens <code>v2</code>
 </p>
 
 ---
@@ -79,9 +79,3 @@ python tests/verify_vectors.py
 ```
 
 Os exemplos assinados podem ser reproduzidos com `node tests/generate_vectors.mjs`. Esse comando regrava os arquivos de `examples/` de forma determinística. Consulte [SHA256SUMS](SHA256SUMS) para conferir os hashes dos arquivos listados ali. A implementação de referência em [reference/codec.mjs](reference/codec.mjs) demonstra JCS, Ed25519, CID e framing TCP; não é um servidor AXIPY.
-
-## Estado e limites
-
-A revisão 0.2 é uma **proposta de protocolo**, ainda não ratificada. Ela entrega formatos, perfis, schemas, vetores e verificadores locais. Não demonstra interoperabilidade de produção entre nós operados separadamente e não inclui uma rede libp2p em execução, uma AC online ou uma DHT implantada.
-
-As chaves dos vetores são derivadas de seeds previsíveis e **nunca devem ser usadas em produção**. Assinaturas autenticam mensagens e objetos, mas o perfil TCP básico não oferece sigilo do tráfego por si só. A versão `2` dos objetos e mensagens é incompatível com o rascunho HTTP v0.1; veja [MIGRATION.md](MIGRATION.md) antes de integrar formatos antigos.
